@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Graph.h"
 
 
@@ -35,7 +34,7 @@ bool Graph::keyboardInput()
 bool Graph::fileInput()
 {
 	string str;
-	ifstream file("input.txt");
+	ifstream file("../source/input.txt");
 	int n;
 
 	if (file)
@@ -52,6 +51,11 @@ bool Graph::fileInput()
 			}
 		}
 	}
+    else{
+        cout << "Error! File did not open!";
+        return false;
+    }
+
 	file.close();
 
 	return true;
@@ -244,6 +248,8 @@ bool Graph::algorithmOfFloyd()
 		cout << "Error! Tag is not valid!";
 		return false;
 	}
+
+    cout << "\nLog:\n\n";
 
 	for (int i = 0; i < adjacency_matrix.size(); ++i)
 		for (int j = 0; j < adjacency_matrix.size(); ++j)
